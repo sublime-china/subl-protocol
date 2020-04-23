@@ -42,7 +42,7 @@ def linux_plugin_unloaded():
 	os.system('rm ~/.local/share/applications/subl-protocol.desktop')
 
 def win_plugin_loaded():
-	sublime_text_file = os.path.dirname(sublime.__file__) + r'\sublime_text.exe'
+	sublime_text_file = sublime.installed_packages_path()[0:-24] + r'\sublime_text.exe'
 	reg_val = r'"$EXE" --command "open_file_from_url {\"url\": \"%1\"}"'
 	reg_val = reg_val.replace('$EXE', sublime_text_file)
 
